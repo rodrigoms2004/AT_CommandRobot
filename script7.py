@@ -9,10 +9,10 @@ import re
 from random import randrange
 
 modem_data = {
-    "port1": "/dev/ttyACM2",
-    "port2": "/dev/ttyUSB2",
+    "port1": "/dev/ttyACM5",
+    "port2": "/dev/ttyUSB5",
     "baud_rate": 115200,
-    "filename": "ST_script4_ACM2_USB2.csv"
+    "filename": "ST_script7_ACM5_USB5.csv"
 }
 
 # Function to send AT commands and get responses

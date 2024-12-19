@@ -44,5 +44,18 @@ crontab -e
 
 # Suntech ACM2 or USB2
 */10 * * * * python /home/pi/at_command/script4.py
+
+# Suntech ACM4 or USB4
+*/10 * * * * python /home/pi/at_command/script5.py
+
+# Suntech ACM6 or USB6
+*/10 * * * * python /home/pi/at_command/script6.py
 ```
 
+### dmesg
+
+check voltage
+
+```
+dmesg -wH
+```

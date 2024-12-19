@@ -6,6 +6,7 @@ import os
 import pandas as pd
 import numpy as np
 import re
+from random import randrange
 
 modem_data = {
     "port1": "/dev/ttyACM0",
@@ -18,7 +19,7 @@ modem_data = {
 def execute_at_commands(commands, command_delay, modem_info):
     try:
         modem_port = ""
-        if os.path.exists('/dev/ttyACM0') == True:
+        if os.path.exists(modem_info['port1']) == True:
             modem_port = modem_info['port1']
         else:
             modem_port = modem_info['port2']
@@ -48,7 +49,8 @@ def execute_at_commands(commands, command_delay, modem_info):
                 })
             return results
     except Exception as e:
-        restart(1)
+        #restart(1)
+        print(str(e))
         return [("Error", str(e))]
 
 def log_results_csv(data, file_name):
@@ -75,6 +77,7 @@ def main():
 
     df_results = None
     for command_tuple in command_list:
+        time.sleep(randrange(1,4))  # wait a random time between 1 and 3 seconds
         results = execute_at_commands(command_tuple[0], command_tuple[1], modem_data)
         df_results = pd.DataFrame(results)
         print(df_results)
